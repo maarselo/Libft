@@ -16,12 +16,19 @@ y el valor de retorno es la suma de caracteres, de ambas str.*/
 
 #include "libft.h"
 
-int	strlcpy(char *dest, char *src, size_t size)
+int	ft_strlcpy(char *dest, char *src, size_t size)
 {
 	size_t	len_dest;
 	size_t	len_src;
 	size_t	i;
 
 	len_dest = ft_strlen(dest);
-	len_src = 
+	len_src = ft_strlen(src);
+	i = len_dest;
+	if (size <= len_dest)
+		return (len_dest + len_src);
+	while (i < size - 1 && *src)
+		dest[i++] = *src++;
+	dest[i] = '\0';
+	return (len_dest + len_src);
 }
