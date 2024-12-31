@@ -10,16 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*while (c != s[i] && s[i] != '\0')
+		i++;
+	if (c == s[i])
+		return (&s[i]);*/
+
 #include "libft.h"
 
-char	*ft_strchr(char *str, int c)
+char	*ft_strchr(char *s, int c)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != c && str[i] != '\0')
+	while (s[i] || s[i] == '\0')
+	{
+		if (s[i] == c)
+			return (&s[i]);
 		i++;
-	if (str[i] == c)
-		return (&str[i]);
+	}
 	return (NULL);
 }
