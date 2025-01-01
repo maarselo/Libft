@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/01 15:34:15 by mvillavi          #+#    #+#             */
-/*   Updated: 2025/01/01 15:34:19 by mvillavi         ###   ########.fr       */
+/*   Created: 2025/01/01 18:27:16 by mvillavi          #+#    #+#             */
+/*   Updated: 2025/01/01 20:11:09 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char	*ptr;
-	size_t	len;
+	size_t	len_little;
 
-	len = ft_strlen(str);
-	ptr = (char *)ft_calloc((len + 1), sizeof(char));
-	if (ptr == NULL)
-		return (NULL);
-	return (ft_memcpy(ptr, str, len));
+	len_little = strlen(little);
+	if (len_little == 0)
+		return ((char *)big);
+	while (*big && len > 0)
+	{
+		if (*little == *big && len >= len_little \
+				&& strncmp(big, little, len_little) == 0)
+			return ((char *)big);
+		big++;
+		len--;
+	}
+	return (NULL);
 }
