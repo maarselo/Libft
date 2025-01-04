@@ -1,37 +1,38 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/04 15:15:33 by mvillavi          #+#    #+#             */
+/*   Updated: 2025/01/04 16:31:17 by mvillavi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libt.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
+	char	*ptr;
+	size_t	i;
 	size_t	start;
 	size_t	end;
-	char	*ptr;
 
 	start = 0;
-	end = strlen(s1) - 1;
-	while (s1[start] && strchr(set, s1[start]) != NULL)
+	if (set[start] == '\0' || s1[start] == '\0')
+		return ((char *)s1);
+	while (s1[start] && ft_strchr(set, s1[start]) != NULL)
 		start++;
-	while (s1[end] && strchr(set, s1[end]) != NULL)
+	end = ft_strlen(s1);
+	while (s1[end] && ft_strchr(set, s1[end]) != NULL)
 		end--;
 	ptr = (char *)malloc(sizeof(char) * (end - start + 1));
 	if (ptr == NULL)
 		return (NULL);
-	size_t	i;
-
 	i = 0;
 	while (end > start)
 		ptr[i++] = s1[start++];
-	*ptr = '\0';	
+	ptr[i] = '\0';
 	return (ptr);
-}
-
-int	main(void)
-{
-	char	array1[] = "ALejandraSubnormal";
-	char	array2[] = "l";
-	char	*ptr = ft_strtrim(array1, array2);
-
-	printf("%s", ptr);
-	return 0;
 }
