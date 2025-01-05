@@ -6,11 +6,11 @@
 /*   By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/01 20:12:25 by mvillavi          #+#    #+#             */
-/*   Updated: 2025/01/01 21:23:30 by mvillavi         ###   ########.fr       */
+/*   Updated: 2025/01/05 15:29:43 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 char	*ft_memmove(void *dest, void *src, size_t n)
 {
@@ -23,6 +23,6 @@ char	*ft_memmove(void *dest, void *src, size_t n)
 		while (n--)
 			d[n] = s[n];
 	else
-		memcpy(dest, src, n);
+		ft_memcpy(dest, src, n);
 	return (dest);
 }

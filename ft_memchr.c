@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/23 23:44:20 by mvillavi          #+#    #+#             */
-/*   Updated: 2025/01/05 16:16:05 by mvillavi         ###   ########.fr       */
+/*   Created: 2025/01/05 16:31:04 by mvillavi          #+#    #+#             */
+/*   Updated: 2025/01/05 16:43:51 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//No empiezan dde cero como las arrays es memoria
+
 #include "libft.h"
 
-size_t	ft_strlen(char *str)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
+	unsigned char	*ptr;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	if (n == 0)
+		return (NULL);
+	ptr = (unsigned char *)s;
+	while (n--)
+	{
+		if (*ptr == c)
+			return ((void *)&*ptr);
+		ptr++;
+	}
+	return (NULL);
 }

@@ -6,11 +6,11 @@
 /*   By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 15:15:33 by mvillavi          #+#    #+#             */
-/*   Updated: 2025/01/04 16:31:17 by mvillavi         ###   ########.fr       */
+/*   Updated: 2025/01/05 16:06:56 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libt.h"
+#include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

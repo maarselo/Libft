@@ -6,7 +6,7 @@
 /*   By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 19:28:40 by mvillavi          #+#    #+#             */
-/*   Updated: 2024/12/26 19:33:06 by mvillavi         ###   ########.fr       */
+/*   Updated: 2025/01/05 16:14:21 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ y el valor de retorno es la suma de caracteres, de ambas str.*/
 
 #include "libft.h"
 
-int	ft_strlcpy(char *dest, char *src, size_t size)
+size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
 	size_t	len_dest;
 	size_t	len_src;
