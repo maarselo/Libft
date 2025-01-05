@@ -6,7 +6,7 @@
 /*   By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 17:43:57 by mvillavi          #+#    #+#             */
-/*   Updated: 2025/01/05 15:47:40 by mvillavi         ###   ########.fr       */
+/*   Updated: 2025/01/05 17:34:07 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_itoa(int n)
 	int		digits;
 
 	if (n == INT_MIN)
-		return (strdup("-2147483648"));
+		return (ft_strdup("-2147483648"));
 	digits = ft_count(n);
 	ptr = (char *)malloc((digits + 1) * sizeof(char));
 	if (ptr == NULL)
