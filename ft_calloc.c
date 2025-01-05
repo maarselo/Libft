@@ -6,7 +6,7 @@
 /*   By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 21:13:21 by mvillavi          #+#    #+#             */
-/*   Updated: 2025/01/04 14:58:50 by mvillavi         ###   ########.fr       */
+/*   Updated: 2025/01/05 18:24:06 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_calloc(size_t nmemb, size_t size)
 
 	i = 0;
 	if (size == 0 || nmemb == 0)
-		return (malloc(0));
+		return (malloc(1));
 	ptr = (char *)malloc(nmemb * size);
 	if (ptr == NULL)
 		return (NULL);
