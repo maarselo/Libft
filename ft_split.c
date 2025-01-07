@@ -6,13 +6,11 @@
 /*   By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 16:31:40 by mvillavi          #+#    #+#             */
-/*   Updated: 2025/01/05 20:27:37 by mvillavi         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:03:30 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "libft.h"
 
 static	int	ft_countw(char *s, int c)
 {
@@ -24,11 +22,11 @@ static	int	ft_countw(char *s, int c)
 	while (s[i])
 	{
 		while (s[i] == c)
-		       i++;
+			i++;
 		if (s[i] != c && s[i])
 			count++;
 		while (s[i] != c && s[i])
-			i++;		
+			i++;
 	}
 	return (count);
 }
@@ -43,30 +41,6 @@ static	size_t	ft_lenw(char *s, int c)
 	return (i);
 }
 
-char    *ft_substr(char const *s, unsigned int start, size_t len)
-{
-        size_t  i;
-        size_t  s_len;
-        char    *substr;
-
-        s_len = strlen(s);
-        if (!s)
-                return (NULL);
-        if (start >= s_len)
-                return (strdup(""));
-        if (start + len > s_len)
-                len = s_len - start;
-        substr = (char *)malloc(sizeof(char) * (len + 1));
-        i = 0;
-	while (i < len)
-        {
-                substr[i] = s[start + i];
-                i++;
-        }
-        substr[i] = '\0';
-        return (substr);
-}
-
 static	char	**ft_free(int n, char **array)
 {
 	while (n >= 0)
@@ -78,9 +52,9 @@ static	char	**ft_free(int n, char **array)
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
-	size_t		i;
-	size_t		w_len;
-	size_t		words;
+	size_t	i;
+	size_t	w_len;
+	size_t	words;
 
 	if (s == NULL)
 		return (NULL);
@@ -102,18 +76,4 @@ char	**ft_split(char const *s, char c)
 	}
 	ptr[i] = NULL;
 	return (ptr);
-}
-
-#include <stdio.h>
-
-int main (void)
-{
-	char	array[]= "    ";
-	char	**ptr = ft_split(array, ' ');
-	for (int i = 0; i < ft_countw(array, ' '); i++)
-		printf("%s\n", ptr[i]);
-	for (int i = 0; i < ft_countw(array, ' '); i++)
-		free(ptr[i]);
-	free(ptr);
-	return 0;
 }
