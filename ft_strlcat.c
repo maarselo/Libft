@@ -16,7 +16,7 @@ y el valor de retorno es la suma de caracteres, de ambas str.*/
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	len_dest;
 	size_t	len_src;
