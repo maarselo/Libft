@@ -45,20 +45,25 @@ static	size_t	ft_lenw(char *s, int c)
 
 char    *ft_substr(char const *s, unsigned int start, size_t len)
 {
-        char    *substr;
+        size_t  i;
         size_t  s_len;
+        char    *substr;
 
+        s_len = strlen(s);
         if (!s)
                 return (NULL);
-        s_len = ft_strlen(s);
         if (start >= s_len)
-                return (ft_strdup(""));
+                return (strdup(""));
         if (start + len > s_len)
                 len = s_len - start;
         substr = (char *)malloc(sizeof(char) * (len + 1));
-        if (!substr)
-                return (NULL);
-        ft_strlcpy (substr, s + start, len + 1);
+        i = 0;
+	while (i < len)
+        {
+                substr[i] = s[start + i];
+                i++;
+        }
+        substr[i] = '\0';
         return (substr);
 }
 
@@ -73,13 +78,14 @@ static	char	**ft_free(int n, char **array)
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
-	size_t		words;
 	size_t		i;
+	size_t		w_len;
+	size_t		words;
 
 	if (s == NULL)
 		return (NULL);
 	words = ft_countw((char *)s, c);
-	ptr = (char **)malloc((ft_countw((char *)s, c) + 1) * sizeof(char));
+	ptr = (char **)malloc((words + 1) * sizeof(char *));
 	if (ptr == NULL)
 		return (NULL);
 	i = 0;
@@ -87,10 +93,11 @@ char	**ft_split(char const *s, char c)
 	{
 		while (*s == c && *s)
 			s++;
-		ptr[i] = ft_substr((char *)s, 0, ft_lenw((char *)s, c));
+		w_len = ft_lenw((char *)s, c);
+		ptr[i] = ft_substr((char *)s, 0, w_len);
 		if (ptr[i] == NULL)
 			return (ft_free(i, ptr));
-		s += ft_lenw((char *)s, c);
+		s += w_len;
 		i++;
 	}
 	ptr[i] = NULL;
@@ -101,10 +108,12 @@ char	**ft_split(char const *s, char c)
 
 int main (void)
 {
-	char	array[]= "Hola me llamo MArcelo";
+	char	array[]= "    ";
 	char	**ptr = ft_split(array, ' ');
 	for (int i = 0; i < ft_countw(array, ' '); i++)
-		printf("%s", ptr[i]);
+		printf("%s\n", ptr[i]);
+	for (int i = 0; i < ft_countw(array, ' '); i++)
+		free(ptr[i]);
 	free(ptr);
 	return 0;
 }
