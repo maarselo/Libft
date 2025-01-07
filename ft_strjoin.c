@@ -6,7 +6,7 @@
 /*   By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 00:27:18 by mvillavi          #+#    #+#             */
-/*   Updated: 2024/12/31 00:52:53 by mvillavi         ###   ########.fr       */
+/*   Updated: 2025/01/07 20:24:13 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	total_len;
 	char	*ptr;
 
+	if (!s1 || !s2)
+		return (NULL);
 	total_len = ft_strlen(s1) + ft_strlen(s2);
 	ptr = (char *)malloc((total_len + 1) * sizeof(char));
 	if (ptr == NULL)
