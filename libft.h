@@ -6,7 +6,7 @@
 /*   By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 15:36:41 by mvillavi          #+#    #+#             */
-/*   Updated: 2025/01/07 21:56:12 by mvillavi         ###   ########.fr       */
+/*   Updated: 2025/01/09 15:49:14 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	*ft_memcpy(void *to, const void *from, size_t numBytes);
 
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 #endif
