@@ -6,7 +6,7 @@
 #    By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/05 16:51:09 by mvillavi          #+#    #+#              #
-#    Updated: 2025/01/10 23:43:55 by mvillavi         ###   ########.fr        #
+#    Updated: 2025/01/10 23:47:51 by mvillavi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ bonus: $(OBJS) $(BOBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-	$(RM) $(OBJS) $(BOJBS)
+	$(RM) $(OBJS) $(BOBJS)
 
 fclean: clean
 	$(RM) $(NAME)
