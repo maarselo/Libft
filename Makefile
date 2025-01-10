@@ -6,7 +6,7 @@
 #    By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/05 16:51:09 by mvillavi          #+#    #+#              #
-#    Updated: 2025/01/07 16:50:58 by mvillavi         ###   ########.fr        #
+#    Updated: 2025/01/10 23:43:55 by mvillavi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,10 @@ SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 
 OBJS = $(SRCS:.c=.o)
 
-#BSRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
+BSRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 	ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-#BOBJS = $(BSRCS:.c=.o)
+BOBJS = $(BSRCS:.c=.o)
 
 
 CC = cc
@@ -38,18 +38,21 @@ RM = rm -rf
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC_LIB) $(NAME) $(OBSJ)
+	$(CC_LIB) $(NAME) $(OBJS)
+
+bonus: $(OBJS) $(BOBJS)
+	$(CC_LIB) $(NAME) $(BOBJS)
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BOJBS)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all bonus clean fclean re
 
