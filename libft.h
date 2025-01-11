@@ -6,7 +6,7 @@
 /*   By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 15:36:41 by mvillavi          #+#    #+#             */
-/*   Updated: 2025/01/10 13:39:12 by mvillavi         ###   ########.fr       */
+/*   Updated: 2025/01/11 15:46:05 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t count);
 
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dest, const char *src, size_t n);
-size_t	ft_strlcat(char *dest, const char *src, size_t size);
+size_t	ft_strlcat(char *dest, const char *src, size_t dstsize);
 
 char	*ft_itoa(int n);
 char	*ft_strdup(const char *str);
