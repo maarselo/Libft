@@ -6,11 +6,9 @@
 /*   By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/24 19:17:18 by mvillavi          #+#    #+#             */
-/*   Updated: 2024/12/24 19:19:25 by mvillavi         ###   ########.fr       */
+/*   Updated: 2025/01/12 20:21:39 by mvillavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isascii(int c)
 {

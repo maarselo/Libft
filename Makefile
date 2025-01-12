@@ -6,11 +6,13 @@
 #    By: mvillavi <mvillavi@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/05 16:51:09 by mvillavi          #+#    #+#              #
-#    Updated: 2025/01/10 23:47:51 by mvillavi         ###   ########.fr        #
+#    Updated: 2025/01/12 20:20:41 by mvillavi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+HEADER = libft.h
 
 SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
        ft_toupper.c ft_tolower.c ft_atoi.c ft_memcmp.c ft_strncmp.c \
@@ -37,13 +39,13 @@ RM = rm -rf
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(HEADER) Makefile
 	$(CC_LIB) $(NAME) $(OBJS)
 
 bonus: $(OBJS) $(BOBJS)
 	$(CC_LIB) $(NAME) $(BOBJS)
 
-%.o:%.c
+%.o:%.c $(HEADER) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
