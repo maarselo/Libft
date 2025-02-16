@@ -31,7 +31,19 @@ Estas funciones proporcionan herramientas básicas para trabajar con cadenas y m
 ## Parte Bonus: Funciones de Lista 🔗
 
 Las funciones bonus están diseñadas para trabajar con listas enlazadas, una estructura de datos dinámica muy útil cuando necesitamos almacenar una colección de elementos sin un tamaño fijo. En esta parte, el foco está en la manipulación de nodos y la creación de funciones que gestionan listas enlazadas de manera eficiente.
+## Estructura `t_list` 📝
 
+La estructura `t_list` se utiliza para definir los nodos de una lista enlazada. Cada nodo contiene dos componentes:
+
+- **`content`**: Un puntero a cualquier tipo de contenido que el nodo almacena.
+- **`next`**: Un puntero al siguiente nodo en la lista. Si es `NULL`, significa que es el último nodo.
+
+```c
+typedef struct s_list {
+    void *content;   // Contenido del nodo
+    struct s_list *next;  // Puntero al siguiente nodo
+} t_list;
+```
 ### Explicación general de las funciones de lista:
 Las funciones implementadas permiten crear, modificar, y eliminar nodos dentro de una lista enlazada, lo que ofrece una flexibilidad adicional frente a arrays estáticos. Cada nodo contiene un puntero a su contenido y otro puntero al siguiente nodo de la lista, lo que facilita la inserción y eliminación de elementos.
 
@@ -45,15 +57,20 @@ Las funciones implementadas permiten crear, modificar, y eliminar nodos dentro d
 - **`ft_lstiter`**: Itera sobre todos los nodos y aplica una función a cada uno.
 - **`ft_lstmap`**: Crea una nueva lista aplicando una función a cada nodo de la lista original.
 
-## Estructura `t_list` 📝
+# Explicación General del `Makefile` y Proceso de Compilación ⚙️
 
-La estructura `t_list` se utiliza para definir los nodos de una lista enlazada. Cada nodo contiene dos componentes:
+El `Makefile` es utilizado para automatizar el proceso de compilación del proyecto. Su objetivo principal es definir las reglas y dependencias que aseguran que los archivos fuente se compilen correctamente y se genere la librería estática `libft.a`.
 
-- **`content`**: Un puntero a cualquier tipo de contenido que el nodo almacena.
-- **`next`**: Un puntero al siguiente nodo en la lista. Si es `NULL`, significa que es el último nodo.
+### Objetivo del `Makefile`
 
-```c
-typedef struct s_list {
-    void *content;   // Contenido del nodo
-    struct s_list *next;  // Puntero al siguiente nodo
-} t_list;
+El `Makefile` tiene varias reglas que:
+1. **Compilan** los archivos fuente `.c` en archivos objeto `.o`.
+2. **Generan** la librería estática `libft.a` usando el comando `ar` para combinar los archivos objeto `.o` en una sola librería.
+
+### Proceso de Compilación
+
+1. Los archivos `.c` se compilan a archivos objeto `.o` mediante el compilador de C.
+2. Los archivos `.o` se agrupan en un archivo estático `libft.a` utilizando `ar`.
+
+Esto se hace de forma eficiente gracias al uso del `Makefile`, que automatiza la compilación y optimiza el flujo de trabajo.
+
