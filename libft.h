@@ -78,13 +78,12 @@ t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-
 char	*get_next_line(int fd);
 char	*get_next_line_bonus(int fd);
 
 void	ft_putchar_pf(char c, int *count);
 void	ft_putstr_pf(char *s, int *count);
-void	ft_putnbr_base_pf(long num, char *base, int *count);
+void	ft_putnbr_pf(long num, char *base, int *count);
 void	ft_putnbr_ulbase_pf(unsigned long num, char *base, int *count);
 void	ft_putptr_pf(void *ptr, int *count);
 int		ft_printf(char const *s, ...);

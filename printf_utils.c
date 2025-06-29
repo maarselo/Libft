@@ -29,7 +29,7 @@ void	ft_putstr_pf(char *s, int *count)
 		ft_putchar_pf(*s++, count);
 }
 
-void	ft_putnbr_base_pf(long num, char *base, int *count)
+void	ft_putnbr_pf(long num, char *base, int *count)
 {
 	int	base_len;
 
@@ -40,7 +40,7 @@ void	ft_putnbr_base_pf(long num, char *base, int *count)
 		num *= -1;
 	}
 	if (num >= base_len)
-		ft_putnbr_base_pf(num / base_len, base, count);
+		ft_putnbr_pf(num / base_len, base, count);
 	ft_putchar_pf(base[num % base_len], count);
 }
 
@@ -50,7 +50,7 @@ void	ft_putnbr_ulbase_pf(unsigned long num, char *base, int *count)
 
 	base_len = ft_strlen(base);
 	if (num >= (unsigned long)base_len)
-		ft_putnbr_base_pf(num / (unsigned long)base_len, base, count);
+		ft_putnbr_pf(num / (unsigned long)base_len, base, count);
 	ft_putchar_pf(base[num % base_len], count);
 }
 
