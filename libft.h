@@ -18,6 +18,10 @@
 # include <stdlib.h>
 # include <limits.h>
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 100
+# endif
+
 typedef struct s_list
 {
 	void			*content;
@@ -72,5 +76,9 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+
+char	*get_next_line(int fd);
+char	*get_next_line_bonus(int fd);
 
 #endif
