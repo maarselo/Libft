@@ -29,7 +29,7 @@ Una biblioteca estática que reúne funciones esenciales para proyectos en C, in
 ```
 
 
-## 📖 Funciones de Libft
+## Funciones de Libft
 
 ### Funciones de Verificación de Caracteres
 
@@ -122,7 +122,7 @@ close(fd);
 ```
 
 
-## 🖨️ ft_printf
+## Ft_printf
 
 ### ¿Qué es?
 
@@ -164,7 +164,7 @@ ft_printf("Hexadecimal: %x\n", 255);
 La función utiliza argumentos variables (`stdarg.h`) para procesar diferentes tipos de datos. Analiza la cadena de formato carácter por carácter, identificando especificadores y delegando la conversión a funciones auxiliares especializadas.
 
 
-## 🔨 Compilación
+## Compilación
 
 ### Requisitos
 
@@ -194,7 +194,7 @@ make re       # Recompila desde cero (fclean + all)
 - `-MMD -MP`: Generar archivos de dependencias automáticas
 
 
-## 🚀 Uso en Proyectos
+## Uso en Proyectos
 
 ### 1. Incluir la Biblioteca
 
