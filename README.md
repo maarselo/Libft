@@ -125,7 +125,7 @@ int ft_printf(const char *format, ...);
 - **Parameter**: `format` - format string with specifiers
 - **Return**: Number of characters printed, or -1 in case of error
 
-### ### Supported Conversions
+### Supported Conversions
 
 | Especificador | Descripción |
 |---------------|-------------|
