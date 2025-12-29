@@ -10,11 +10,11 @@ A static library that brings together essential functions for C projects, includ
 │ ├── ft_printf.h
 │ └── libft.h
 ├── src/
-│ ├── libft/        #Standard Library Functions
-│ ├── gnl/          #Get Next Line
-│ └── ft_printf/    #Custom Printf
-├── obj/            #Object Files (generated)
-├── deps/           #Dependency Files (generated)
+│ ├── libft/        # Standard Library Functions
+│ ├── gnl/          # Get Next Line
+│ └── ft_printf/    # Custom Printf
+├── obj/            # Object Files (generated)
+├── deps/           # Dependency Files (generated)
 ├── Makefile
 └── README.md
 ```
