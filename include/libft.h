@@ -21,6 +21,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdarg.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -49,6 +50,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strnstr(const char *big, const char *little, size_t len);
+char	*ft_multijoin(int total_str, ...);
 
 void	ft_putnbr_fd(int n, int fd);
 void	ft_bzero(void *s, size_t n);
@@ -61,6 +63,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	*ft_memcpy(void *to, const void *from, size_t numBytes);
+void	*ft_realloc(void *ptr, int old_size, int new_size);
 
 char	*get_next_line(int fd);
 
