@@ -4,7 +4,7 @@ A static library that brings together essential functions for C projects, includ
 
 ## Project Structure
 
-```c
+```
 .
 ├── include/
 │ ├── ft_printf.h
