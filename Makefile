@@ -14,8 +14,10 @@ NAME = libft.a
 
 DIR_INCLUDE = include
 OBJ_DIR = obj
+DEPS_DIR = deps
 
 DIR_FILES_LIBFT = src/libft
+DIR_FILES_GNL = src/gnl
 
 HEADER_LIBFT = $(DIR_INCLUDE)/libft.h
 
@@ -25,30 +27,42 @@ FILES_LIBFT = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
        ft_strdup.c ft_strrchr.c ft_calloc.c ft_strjoin.c ft_memmove.c \
        ft_strtrim.c ft_substr.c ft_strmapi.c ft_strnstr.c ft_putnbr_fd.c \
        ft_bzero.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_memset.c \
-       ft_memchr.c ft_striteri.c ft_memcpy.c ft_split.c \
+       ft_memchr.c ft_striteri.c ft_memcpy.c ft_split.c
+
+FILES_GNL = get_next_line.c
 
 SRCS_LIBFT = $(addprefix $(DIR_FILES_LIBFT)/, $(FILES_LIBFT))
+SRCS_GNL = $(addprefix $(DIR_FILES_GNL)/, $(FILES_GNL))
 
 OBJS_LIBFT = $(addprefix $(OBJ_DIR)/, $(FILES_LIBFT:.c=.o))
+OBJS_GNL = $(addprefix $(OBJ_DIR)/, $(FILES_GNL:.c=.o))
 
-CC = cc
+DEPS = $(addprefix $(DEPS_DIR)/, $(FILES_LIBFT:.c=.d) $(FILES_GNL:.c=.d))
+
+CC = cc -MMD -MP
 CC_LIB = ar -rcs
 CFLAGS = -Wall -Werror -Wextra -Iinclude
 RM = rm -rf
 
 all: $(NAME)
 
-$(NAME): $(OBJS_LIBFT) $(HEADER_LIBFT) Makefile
-	$(CC_LIB) $(NAME) $(OBJS_LIBFT)
+$(NAME): $(OBJS_LIBFT) $(OBJS_GNL) Makefile
+	$(CC_LIB) $(NAME) $(OBJS_LIBFT) $(OBJS_GNL)
 
-$(OBJ_DIR)/%.o: $(DIR_FILES_LIBFT)/%.c | $(OBJ_DIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: $(DIR_FILES_LIBFT)/%.c | $(OBJ_DIR) $(DEPS_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@ -MF $(DEPS_DIR)/$*.d
+
+$(OBJ_DIR)/%.o: $(DIR_FILES_GNL)/%.c | $(OBJ_DIR) $(DEPS_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@ -MF $(DEPS_DIR)/$*.d
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
+$(DEPS_DIR):
+	mkdir -p $(DEPS_DIR)
+
 clean :
-	$(RM) $(OBJ_DIR)
+	$(RM) $(OBJ_DIR) $(DEPS_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
@@ -57,3 +71,4 @@ re: fclean all
 
 .PHONY: all clean fclean re
 
+-include $(DEPS)

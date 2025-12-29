@@ -13,6 +13,10 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 100
+# endif
+
 # include <unistd.h>
 # include <stddef.h>
 # include <stdlib.h>
@@ -57,5 +61,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	*ft_memcpy(void *to, const void *from, size_t numBytes);
+
+char	*get_next_line(int fd);
 
 #endif
