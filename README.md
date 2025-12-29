@@ -2,7 +2,7 @@
 
 Una biblioteca estática que reúne funciones esenciales para proyectos en C, incluyendo reimplementaciones de funciones estándar de `libc`, junto con `get_next_line` y `ft_printf`.
 
-## 📚 Tabla de Contenidos
+## Tabla de Contenidos
 
 - [Estructura del Proyecto](##estructura-del-proyecto)
 - [Funciones de Libft](#funciones-de-libft)
@@ -11,7 +11,7 @@ Una biblioteca estática que reúne funciones esenciales para proyectos en C, in
 - [Compilación](#compilación)
 - [Uso en Proyectos](#uso-en-proyectos)
 
-## 🗂️ Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 .
@@ -84,7 +84,7 @@ Una biblioteca estática que reúne funciones esenciales para proyectos en C, in
 - `ft_putnbr_fd` : Escribe un número entero en un file descriptor 
 
 
-## 📄 Get Next Line
+## Get Next Line
 
 ### ¿Qué es?
 
@@ -254,7 +254,7 @@ fclean: clean
 re: fclean all
 ```
 
-## 📝 Notas
+## Notas
 
 - Todas las funciones están protegidas contra `NULL` y parámetros inválidos
 - La gestión de memoria es responsabilidad del usuario (funciones que asignan memoria deben ser liberadas)
