@@ -96,7 +96,7 @@ char *get_next_line(int fd);
 - Detects the end of the file and handles read errors
 - Buffer size configurable at compile time
 
-### ### Use Cases
+### Use Cases
 
 ```c
 int fd = open("archivo.txt", O_RDONLY);
