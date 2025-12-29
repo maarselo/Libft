@@ -1,6 +1,6 @@
 # Luxe Libft Project - Mi Biblioteca de Funciones en C
 
-Una biblioteca estática que reúne funciones esenciales para proyectos en C, incluyendo reimplementaciones de funciones estándar de libc, junto con `get_next_line` y `ft_printf`.
+Una biblioteca estática que reúne funciones esenciales para proyectos en C, incluyendo reimplementaciones de funciones estándar de `libc`, junto con `get_next_line` y `ft_printf`.
 
 ## 📚 Tabla de Contenidos
 
@@ -28,7 +28,6 @@ Una biblioteca estática que reúne funciones esenciales para proyectos en C, in
 └── README.md
 ```
 
----
 
 ## 📖 Funciones de Libft
 
@@ -36,13 +35,13 @@ Una biblioteca estática que reúne funciones esenciales para proyectos en C, in
 
 | Función | Descripción |
 |---------|-------------|
-| `ft_isalpha` | Verifica si un carácter es alfabético (a-z, A-Z) |
-| `ft_isdigit` | Verifica si un carácter es un dígito (0-9) |
-| `ft_isalnum` | Verifica si un carácter es alfanumérico |
-| `ft_isascii` | Verifica si un carácter está en el rango ASCII (0-127) |
-| `ft_isprint` | Verifica si un carácter es imprimible |
-| `ft_isspace` | Verifica si un carácter es un espacio en blanco |
-| `ft_ismetachar` | Verifica si un carácter es un metacarácter de shell |
+-  `ft_isalpha`: Verifica si un carácter es alfabético (a-z, A-Z) |
+- `ft_isdigit` : Verifica si un carácter es un dígito (0-9) |
+- `ft_isalnum` : Verifica si un carácter es alfanumérico |
+- `ft_isascii` : Verifica si un carácter está en el rango ASCII (0-127) |
+- `ft_isprint` : Verifica si un carácter es imprimible |
+- `ft_isspace` : Verifica si un carácter es un espacio en blanco |
+- `ft_ismetachar` : Verifica si un carácter es un metacarácter de shell |
 
 ### Funciones de Conversión
 
