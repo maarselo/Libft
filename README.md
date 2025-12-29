@@ -92,7 +92,7 @@ Una biblioteca estática que reúne funciones esenciales para proyectos en C, in
 
 ### Funcionamiento
 
-```
+```c
 char *get_next_line(int fd);
 ```
 
