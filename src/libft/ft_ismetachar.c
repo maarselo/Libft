@@ -15,6 +15,6 @@
 int	ft_ismetachar(int c)
 {
 	if (ft_strchr("@#!$%^*-():;?/.,~+", c))
-			return (1);
+		return (1);
 	return (0);
 }
