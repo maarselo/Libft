@@ -1,112 +1,132 @@
-# Luxe Libft Project - Mi Biblioteca de Funciones en C
+# Luxe Libft Project - My C Function Library
 
-Una biblioteca estática que reúne funciones esenciales para proyectos en C, incluyendo reimplementaciones de funciones estándar de `libc`, junto con `get_next_line` y `ft_printf`.
+A static library that brings together essential functions for C projects, including reimplementations of standard `libc` functions, along with `get_next_line` and `ft_printf`.
 
-## Tabla de Contenidos
+## Table of Contents
 
-- [Estructura del Proyecto](#estructura-del-proyecto)
-- [Funciones de Libft](#funciones-de-libft)
+- [Project Structure](#project-structure)
+- [Libft Functions](#libft-functions)
 - [Get Next Line](#get-next-line)
-- [Ft_printf](#ft_printf)
-- [Compilación](#compilación)
-- [Uso en Proyectos](#uso-en-proyectos)
+- [ft_printf](#ft_printf)
+- [Compilation](#compile)
+- [Use in Projects](#use-in-projects)
 
-## Estructura del Proyecto
+## Project Structure
 
 ```
-.
+
 ├── include/
-│   ├── ft_printf.h
-│   └── libft.h
+│ ├── ft_printf.h
+│ └── libft.h
 ├── src/
-│   ├── libft/       # Funciones de la biblioteca estándar
-│   ├── gnl/         # Get Next Line
-│   └── ft_printf/   # Printf personalizado
-├── obj/             # Archivos objeto (generado)
-├── deps/            # Archivos de dependencias (generado)
+│ ├── libft/ # Standard Library Functions
+│ ├── gnl/ # Get Next Line
+│ └── ft_printf/ # Custom Printf
+├── obj/ # Object Files (generated)
+├── deps/ # Dependency Files (generated)
 ├── Makefile
 └── README.md
 ```
 
+## Libft Functions
 
-## Funciones de Libft
+### Character Verification Functions
 
-### Funciones de Verificación de Caracteres
+- `ft_isalpha`: Checks if a `ft_isdigit`: Checks if a character is alphabetic (a-z, A-Z)
 
-- `ft_isalpha`: Verifica si un carácter es alfabético (a-z, A-Z) 
-- `ft_isdigit` : Verifica si un carácter es un dígito (0-9) 
-- `ft_isalnum` : Verifica si un carácter es alfanumérico 
-- `ft_isascii` : Verifica si un carácter está en el rango ASCII (0-127) 
-- `ft_isprint` : Verifica si un carácter es imprimible 
-- `ft_isspace` : Verifica si un carácter es un espacio en blanco 
-- `ft_ismetachar` : Verifica si un carácter es un metacarácter de shell 
+- `ft_isdigit`: Checks if a character is a digit (0-9)
 
-### Funciones de Conversión
+- `ft_isalnum`: Checks if a character is alphanumeric
 
-- `ft_toupper` : Convierte un carácter a mayúscula 
-- `ft_tolower` : Convierte un carácter a minúscula
-- `ft_atoi` : Convierte una cadena a entero 
-- `ft_itoa` : Convierte un entero a cadena 
+- `ft_isascii`: Checks if a character is in the ASCII range (0-127)
 
-### Funciones de Manipulación de Memoria
+- `ft_isprint`: Checks if a character is printable
 
-- `ft_memset` : Llena un bloque de memoria con un byte específico 
-- `ft_bzero` : Establece un bloque de memoria a cero 
-- `ft_memcpy` : Copia n bytes de memoria (sin solapamiento) 
-- `ft_memmove` : Copia n bytes de memoria (con solapamiento seguro) 
-- `ft_memchr` : Busca un byte en un bloque de memoria 
-- `ft_memcmp` : Compara dos bloques de memoria 
-- `ft_calloc` : Reserva memoria inicializada a cero 
-- `ft_realloc` : Redimensiona un bloque de memoria previamente reservado 
+- `ft_isspace`: Checks if a character is a whitespace character
 
-### Funciones de Manipulación de Cadenas
-- `ft_strlen` : Calcula la longitud de una cadena 
-- `ft_strlcpy` : Copia una cadena de forma segura (con límite de tamaño) 
-- `ft_strlcat` : Concatena cadenas de forma segura 
-- `ft_strchr` : Busca la primera ocurrencia de un carácter 
-- `ft_strrchr` : Busca la última ocurrencia de un carácter 
-- `ft_strncmp` : Compara dos cadenas hasta n caracteres 
-- `ft_strnstr` : Busca una subcadena en una cadena (con límite) 
-- `ft_strdup` : Duplica una cadena (reserva memoria) 
-- `ft_substr` : Extrae una subcadena 
-- `ft_strjoin` : Concatena dos cadenas en una nueva 
-- `ft_strtrim` : Elimina caracteres específicos del inicio y final 
-- `ft_split` : Divide una cadena en un array usando un delimitador 
-- `ft_strmapi` : Aplica una función a cada carácter (con índice) 
-- `ft_striteri` : Aplica una función a cada carácter (modifica in-place) 
-- `ft_multijoin` : Une múltiples cadenas en una sola 
+- `ft_ismetachar`: Checks if a character is a shell metacharacter
 
-### Funciones de Salida
+### Conversion Functions
 
-- `ft_putchar_fd` : Escribe un carácter en un file descriptor 
-- `ft_putstr_fd` : Escribe una cadena en un file descriptor 
-- `ft_putendl_fd` : Escribe una cadena seguida de nueva línea 
-- `ft_putnbr_fd` : Escribe un número entero en un file descriptor 
+- `ft_toupper`: Converts a character to uppercase
 
+- `ft_tolower`: Converts a character to lowercase
+
+- `ft_atoi`: Converts a string to an integer
+
+- `ft_itoa`: Converts an integer to a string
+
+### Functions of Memory Manipulation
+
+- `ft_memset`: Fills a memory block with a specific byte
+
+- `ft_bzero`: Sets a memory block to zero
+
+- `ft_memcpy`: Copies n bytes of memory (without overlap)
+
+- `ft_memmove`: Copies n bytes of memory (with safe overlap)
+
+- `ft_memchr`: Searches for a byte in a memory block
+
+- `ft_memcmp`: Compares two memory blocks
+
+- `ft_calloc`: Allocates memory initialized to zero
+
+- `ft_realloc`: Resizes a previously allocated memory block
+
+### String Manipulation Functions
+- `ft_strlen`: Calculates the length of a string
+
+- `ft_strlcpy`: Copies a string safely (with a size limit)
+
+- `ft_strlcat`: Concatenates strings Safely
+- `ft_strchr`: Finds the first occurrence of a character
+- `ft_strrchr`: Finds the last occurrence of a character
+- `ft_strncmp`: Compares two strings up to n characters
+- `ft_strnstr`: Searches for a substring within a string (with a limit)
+- `ft_strdup`: Duplicates a string (allocates memory)
+- `ft_substr`: Extracts a substring
+- `ft_strjoin`: Concatenates two strings into a new one
+- `ft_strtrim`: Removes specific characters from the beginning and end
+- `ft_split`: Splits a string into an array using a delimiter
+- `ft_strmapi`: Applies a function to each character (with an index)
+- `ft_striteri`: Applies a function to each character (modifies in-place)
+- `ft_multijoin`: Joins multiple strings into a single string
+
+### Output Functions
+
+- `ft_putchar_fd`: Writes a character to a file descriptor
+
+- `ft_putstr_fd`: Writes a string to a file descriptor
+
+- `ft_putendl_fd`: Writes a string followed by a newline character
+
+- `ft_putnbr_fd`: Writes an integer to a file descriptor
 
 ## Get Next Line
 
-### ¿Qué es?
+### What is it?
 
-`get_next_line` es una función que lee una línea de un file descriptor, incluyendo el carácter de nueva línea (`\n`). Es especialmente útil para leer archivos línea por línea o entrada estándar.
+`get_next_line` is a function that reads a line from a file descriptor, including the newline character (`\n`). It is especially useful for reading files line by line or standard input.
 
-### Funcionamiento
+### Operation
 
 ```c
 char *get_next_line(int fd);
-```
 
-- **Parámetro**: `fd` - file descriptor del cual leer
-- **Retorno**: La línea leída (incluyendo `\n`), o `NULL` si no hay más que leer o hay error
-- **Gestión de memoria**: Cada llamada devuelve una nueva línea que debe ser liberada por el usuario
+` ... ```
 
-### Características
+- **Parameter**: `fd` - file descriptor to read from
+- **Return**: The line read (including `\n`), or `NULL` if there is nothing more to read or an error occurs
+- **Memory Management**: Each call returns a new line that must be freed by the user
 
-- Lee de cualquier file descriptor (archivos, stdin, sockets, etc.)
-- Gestiona múltiples file descriptors simultáneamente
-- Utiliza un buffer estático para mantener datos entre llamadas
-- Detecta el final del archivo y gestiona errores de lectura
-- Buffer size configurable en tiempo de compilación
+### Features
+
+- Reads from any file descriptor (files, stdin, sockets, etc.)
+- Handles multiple file descriptors simultaneously
+- Uses a static buffer to hold data between calls
+- Detects the end of the file and handles read errors
+- Buffer size configurable at compile time
 
 ### Casos de Uso
 
