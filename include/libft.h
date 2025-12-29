@@ -64,4 +64,6 @@ void	*ft_memcpy(void *to, const void *from, size_t numBytes);
 
 char	*get_next_line(int fd);
 
+int		ft_printf(char const *s, ...);
+
 #endif
