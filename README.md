@@ -96,7 +96,7 @@ char *get_next_line(int fd);
 - Detects the end of the file and handles read errors
 - Buffer size configurable at compile time
 
-### Casos de Uso
+### ### Use Cases
 
 ```c
 int fd = open("archivo.txt", O_RDONLY);
@@ -112,44 +112,44 @@ close(fd);
 
 ## Ft_printf
 
-### ¿Qué es?
+### What is it?
 
-`ft_printf` es una reimplementación de la función `printf` de la biblioteca estándar de C, que formatea y escribe datos en la salida estándar.
+`ft_printf` is a reimplementation of the `printf` function from the C standard library, which formats and writes data to standard output.
 
-### Prototipo
+### Prototype
 
 ```c
 int ft_printf(const char *format, ...);
 ```
 
-- **Parámetro**: `format` - cadena de formato con especificadores
-- **Retorno**: Número de caracteres impresos, o -1 en caso de error
+- **Parameter**: `format` - format string with specifiers
+- **Return**: Number of characters printed, or -1 in case of error
 
-### Conversiones Soportadas
+### ### Supported Conversions
 
 | Especificador | Descripción |
 |---------------|-------------|
-| `%c` | Carácter individual |
-| `%s` | Cadena de caracteres |
-| `%p` | Puntero en formato hexadecimal |
-| `%d` | Entero decimal con signo |
-| `%i` | Entero decimal con signo |
-| `%u` | Entero decimal sin signo |
-| `%x` | Hexadecimal en minúsculas |
-| `%X` | Hexadecimal en mayúsculas |
-| `%%` | Carácter literal '%' |
+| `%c` | individual character |
+| `%s` | String |
+| `%p` | Hexadecimal pointer |
+| `%d` | Signed decimal integer |
+| `%i` | Signed decimal integer |
+| `%u` | Unsigned decimal integer |
+| `%x` | Lowercase hexadecimal |
+| `%X` | Uppercase hexadecimal |
+| `%%` | Literal character '%' |
 
-### Ejemplo de Uso
+### Example of Use
 
 ```c
-ft_printf("Hola %s, tienes %d años\n", "mundo", 42);
-ft_printf("Dirección: %p\n", ptr);
+ft_printf("Hello %s, you have %d years\n", "World", 42);
+ft_printf("Address: %p\n", ptr);
 ft_printf("Hexadecimal: %x\n", 255);
 ```
 
-### Implementación
+### Implementation
 
-La función utiliza argumentos variables (`stdarg.h`) para procesar diferentes tipos de datos. Analiza la cadena de formato carácter por carácter, identificando especificadores y delegando la conversión a funciones auxiliares especializadas.
+The function uses variable arguments (`stdarg.h`) to process different data types. It analyzes the format string character by character, identifying specifiers and delegating the conversion to specialized helper functions.
 
 
 ## Compilación
@@ -162,18 +162,18 @@ La función utiliza argumentos variables (`stdarg.h`) para procesar diferentes t
 ### Comandos del Makefile
 
 ```bash
-make          # Compila la biblioteca libft.a
-make clean    # Elimina archivos objeto y dependencias
-make fclean   # Elimina todo (incluido libft.a)
-make re       # Recompila desde cero (fclean + all)
+make 		# Compiles the libft.a library
+make clean  # Removes object files and dependencies
+make fclean # Removes everything (including libft.a)
+make re 	# Recompiles from zero (fclean + all)
 ```
 
-### Proceso de Compilación
+### Compilation Process
 
-1. **Generación de directorios**: Se crean `obj/` y `deps/` automáticamente
-2. **Compilación de archivos fuente**: Cada `.c` se compila en un `.o` correspondiente
-3. **Generación de dependencias**: Flag `-MMD -MP` genera archivos `.d` que rastrean dependencias de headers
-4. **Creación de biblioteca**: `ar -rcs` empaqueta todos los `.o` en `libft.a`
+1. **Directory Generation**: `obj/` and `deps/` are created automatically
+2. **Source File Compilation**: Each `.c` file is compiled into a corresponding `.o` file
+3. **Dependency Generation**: The `-MMD -MP` flag generates `.d` files that track header dependencies
+4. **Library Creation**: `ar -rcs` packages all `.o` files into `libft.a`
 
 ### Flags de Compilación
 
@@ -182,69 +182,68 @@ make re       # Recompila desde cero (fclean + all)
 - `-MMD -MP`: Generar archivos de dependencias automáticas
 
 
-## Uso en Proyectos
+## Usage in Projects
 
-### 1. Incluir la Biblioteca
+### 1. Include the Library
 
-Copia `libft.a` y los headers a tu proyecto:
-
-```bash
-cp libft.a /ruta/a/tu/proyecto/
-cp include/*.h /ruta/a/tu/proyecto/
-```
-
-### 2. Compilar con la Biblioteca
+Copy `libft.a` and the headers into your project:
 
 ```bash
-gcc main.c libft.a -o programa
+cp libft.a /path/to/your/project/
+cp include/*.h /path/to/your/project/
 ```
 
-O especificando la ruta:
+### 2. Compile with the Library
 
 ```bash
-gcc main.c -L. -lft -o programa
+gcc main.c libft.a -o program
 ```
 
-### 3. Incluir Headers en tu Código
+Or specifying the path:
+
+```bash
+gcc main.c -L. -lft -o program
+```
+
+### 3. Include Headers in your Code
 
 ```c
 #include "libft.h"
-
-int main() {
+int main() { 
 	...
 }
 ```
 
-### 4. Integrar en tu Makefile
+### 4. Integrate into your Makefile
 
 ```makefile
-NAME = mi_programa
+NAME = my_program
 LIBFT = libft/libft.a
 SRCS = main.c utils.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFT) $(NAME)
 
-$(LIBFT):
-	make -C libft
+$(LIBFT): 
+make -C libft
 
-$(NAME): $(OBJS)
-	gcc $(OBJS) $(LIBFT) -o $(NAME)
+$(NAME): $(OBJS) 
+gcc $(OBJS) $(LIBFT) -o $(NAME)
 
-clean:
-	rm -f $(OBJS)
-	make -C libft clean
+clean: 
+rm -f $(OBJS) 
+make -C libft clean
 
-fclean: clean
-	rm -f $(NAME)
-	make -C libft fclean
+fclean: clean 
+rm -f $(NAME) 
+make -C libft fclean
 
 re: fclean all
 ```
 
-## Notas
+## Notes
 
-- Todas las funciones están protegidas contra `NULL` y parámetros inválidos
-- La gestión de memoria es responsabilidad del usuario (funciones que asignan memoria deben ser liberadas)
-- Compatible con proyectos de 42 School (norminette)
-- Sistema de dependencias automáticas evita recompilaciones innecesarias
+- All functions are protected against `NULL` and invalid parameters
+- Memory management is the user's responsibility (functions that allocate memory must be freed)
+- Compatible with 42 School (norminette) projects
+- Automatic dependency management prevents unnecessary recompilation
