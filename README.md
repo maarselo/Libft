@@ -7,7 +7,7 @@ Una biblioteca estática que reúne funciones esenciales para proyectos en C, in
 - [Estructura del Proyecto](#estructura-del-proyecto)
 - [Funciones de Libft](#funciones-de-libft)
 - [Get Next Line](#get-next-line)
-- [ft_printf](#ft_printf)
+- [Ft_printf](#ft_printf)
 - [Compilación](#compilación)
 - [Uso en Proyectos](#uso-en-proyectos)
 
