@@ -114,15 +114,13 @@ char *get_next_line(int fd);
 int fd = open("archivo.txt", O_RDONLY);
 char *line;
 
-while ((line = get_next_line(fd)) != NULL)
-{
+while ((line = get_next_line(fd)) != NULL) {
     printf("%s", line);
     free(line);
 }
 close(fd);
 ```
 
----
 
 ## 🖨️ ft_printf
 
@@ -165,7 +163,6 @@ ft_printf("Hexadecimal: %x\n", 255);
 
 La función utiliza argumentos variables (`stdarg.h`) para procesar diferentes tipos de datos. Analiza la cadena de formato carácter por carácter, identificando especificadores y delegando la conversión a funciones auxiliares especializadas.
 
----
 
 ## 🔨 Compilación
 
@@ -196,7 +193,6 @@ make re       # Recompila desde cero (fclean + all)
 - `-Iinclude`: Incluir el directorio de headers
 - `-MMD -MP`: Generar archivos de dependencias automáticas
 
----
 
 ## 🚀 Uso en Proyectos
 
@@ -225,31 +221,9 @@ gcc main.c -L. -lft -o programa
 
 ```c
 #include "libft.h"
-#include "ft_printf.h"
 
-int main(void)
-{
-    char *line;
-    int fd;
-    
-    // Usar ft_printf
-    ft_printf("Hola Mundo!\n");
-    
-    // Usar get_next_line
-    fd = open("test.txt", O_RDONLY);
-    while ((line = get_next_line(fd)) != NULL)
-    {
-        ft_printf("%s", line);
-        free(line);
-    }
-    close(fd);
-    
-    // Usar funciones de libft
-    char *str = ft_strdup("42 Barcelona");
-    ft_printf("Longitud: %d\n", ft_strlen(str));
-    free(str);
-    
-    return (0);
+int main() {
+	...
 }
 ```
 
@@ -280,23 +254,9 @@ fclean: clean
 re: fclean all
 ```
 
----
-
 ## 📝 Notas
 
 - Todas las funciones están protegidas contra `NULL` y parámetros inválidos
 - La gestión de memoria es responsabilidad del usuario (funciones que asignan memoria deben ser liberadas)
 - Compatible con proyectos de 42 School (norminette)
 - Sistema de dependencias automáticas evita recompilaciones innecesarias
-
----
-
-## 👤 Autor
-
-**mvillavi** - 42 Barcelona
-
----
-
-## 📜 Licencia
-
-Este proyecto es de código abierto y está disponible para uso educativo.
