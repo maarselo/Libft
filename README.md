@@ -2,15 +2,6 @@
 
 A static library that brings together essential functions for C projects, including reimplementations of standard `libc` functions, along with `get_next_line` and `ft_printf`.
 
-## Table of Contents
-
-- [Project Structure](#project-structure)
-- [Libft Functions](#libft-functions)
-- [Get Next Line](#get-next-line)
-- [Ft_printf](#ft_printf)
-- [Compilation](#compile)
-- [Use in Projects](#use-in-projects)
-
 ## Project Structure
 
 ```c
