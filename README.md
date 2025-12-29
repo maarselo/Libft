@@ -1,4 +1,4 @@
-# Libft - Mi Biblioteca de Funciones en C
+# Luxe Libft Project - Mi Biblioteca de Funciones en C
 
 Una biblioteca estática que reúne funciones esenciales para proyectos en C, incluyendo reimplementaciones de funciones estándar de libc, junto con `get_next_line` y `ft_printf`.
 
