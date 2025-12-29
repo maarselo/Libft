@@ -7,23 +7,23 @@ A static library that brings together essential functions for C projects, includ
 - [Project Structure](#project-structure)
 - [Libft Functions](#libft-functions)
 - [Get Next Line](#get-next-line)
-- [ft_printf](#ft_printf)
+- [Ft_printf](#ft_printf)
 - [Compilation](#compile)
 - [Use in Projects](#use-in-projects)
 
 ## Project Structure
 
-```
-
+```c
+.
 ├── include/
 │ ├── ft_printf.h
 │ └── libft.h
 ├── src/
-│ ├── libft/ # Standard Library Functions
-│ ├── gnl/ # Get Next Line
-│ └── ft_printf/ # Custom Printf
-├── obj/ # Object Files (generated)
-├── deps/ # Dependency Files (generated)
+│ ├── libft/        # Standard Library Functions
+│ ├── gnl/          # Get Next Line
+│ └── ft_printf/    # Custom Printf
+├── obj/            # Object Files (generated)
+├── deps/           # Dependency Files (generated)
 ├── Makefile
 └── README.md
 ```
@@ -33,52 +33,34 @@ A static library that brings together essential functions for C projects, includ
 ### Character Verification Functions
 
 - `ft_isalpha`: Checks if a `ft_isdigit`: Checks if a character is alphabetic (a-z, A-Z)
-
 - `ft_isdigit`: Checks if a character is a digit (0-9)
-
 - `ft_isalnum`: Checks if a character is alphanumeric
-
 - `ft_isascii`: Checks if a character is in the ASCII range (0-127)
-
 - `ft_isprint`: Checks if a character is printable
-
 - `ft_isspace`: Checks if a character is a whitespace character
-
 - `ft_ismetachar`: Checks if a character is a shell metacharacter
 
 ### Conversion Functions
 
 - `ft_toupper`: Converts a character to uppercase
-
 - `ft_tolower`: Converts a character to lowercase
-
 - `ft_atoi`: Converts a string to an integer
-
 - `ft_itoa`: Converts an integer to a string
 
 ### Functions of Memory Manipulation
 
 - `ft_memset`: Fills a memory block with a specific byte
-
 - `ft_bzero`: Sets a memory block to zero
-
 - `ft_memcpy`: Copies n bytes of memory (without overlap)
-
 - `ft_memmove`: Copies n bytes of memory (with safe overlap)
-
 - `ft_memchr`: Searches for a byte in a memory block
-
 - `ft_memcmp`: Compares two memory blocks
-
 - `ft_calloc`: Allocates memory initialized to zero
-
 - `ft_realloc`: Resizes a previously allocated memory block
 
 ### String Manipulation Functions
 - `ft_strlen`: Calculates the length of a string
-
 - `ft_strlcpy`: Copies a string safely (with a size limit)
-
 - `ft_strlcat`: Concatenates strings Safely
 - `ft_strchr`: Finds the first occurrence of a character
 - `ft_strrchr`: Finds the last occurrence of a character
@@ -96,11 +78,8 @@ A static library that brings together essential functions for C projects, includ
 ### Output Functions
 
 - `ft_putchar_fd`: Writes a character to a file descriptor
-
 - `ft_putstr_fd`: Writes a string to a file descriptor
-
 - `ft_putendl_fd`: Writes a string followed by a newline character
-
 - `ft_putnbr_fd`: Writes an integer to a file descriptor
 
 ## Get Next Line
@@ -113,9 +92,7 @@ A static library that brings together essential functions for C projects, includ
 
 ```c
 char *get_next_line(int fd);
-
-` ... ```
-
+```
 - **Parameter**: `fd` - file descriptor to read from
 - **Return**: The line read (including `\n`), or `NULL` if there is nothing more to read or an error occurs
 - **Memory Management**: Each call returns a new line that must be freed by the user
