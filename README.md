@@ -11,8 +11,6 @@ Una biblioteca estática que reúne funciones esenciales para proyectos en C, in
 - [Compilación](#compilación)
 - [Uso en Proyectos](#uso-en-proyectos)
 
----
-
 ## 🗂️ Estructura del Proyecto
 
 ```
