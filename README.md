@@ -1,76 +1,317 @@
-# Proyecto `libft.a` 📚
+# Libft - Mi Biblioteca de Funciones en C
 
-El proyecto **libft.a** consiste en la creación de una librería estática en C que emula parte de la funcionalidad de la librería estándar `libc`, además de incluir un conjunto de funciones adicionales que ayudan en la manipulación de cadenas, memoria y listas. El objetivo es ofrecer herramientas reutilizables para diversas aplicaciones en C, y la implementación se divide en dos partes:
+Una biblioteca estática que reúne funciones esenciales para proyectos en C, incluyendo reimplementaciones de funciones estándar de libc, junto con `get_next_line` y `ft_printf`.
 
-1. **Parte Obligatoria**: Funciones fundamentales de la librería estándar `libc` que manejan cadenas y memoria.
-2. **Parte Bonus**: Funciones más avanzadas para trabajar con listas, que requieren un mayor enfoque en la manipulación de estructuras de datos.
+## 📚 Tabla de Contenidos
 
-## Parte Obligatoria: Funciones de `libc` ⚙️
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Funciones de Libft](#funciones-de-libft)
+- [Get Next Line](#get-next-line)
+- [ft_printf](#ft_printf)
+- [Compilación](#compilación)
+- [Uso en Proyectos](#uso-en-proyectos)
 
-Estas funciones proporcionan herramientas básicas para trabajar con cadenas y memoria en C, ayudando a evitar la reescritura de código estándar.
+---
 
-- **`ft_strlen`**: Devuelve la longitud de una cadena.
-- **`ft_memset`**: Rellena un bloque de memoria con un valor específico.
-- **`ft_bzero`**: Rellena un área de memoria con ceros.
-- **`ft_memcpy`**: Copia bloques de memoria de una ubicación a otra.
-- **`ft_memmove`**: Mueve bloques de memoria de una ubicación a otra sin corrupción de datos.
-- **`ft_strlcpy`**: Copia una cadena de caracteres de forma segura, previniendo desbordamientos.
-- **`ft_strlcat`**: Concatena dos cadenas de caracteres de forma segura.
-- **`ft_toupper`**: Convierte un carácter a su versión en mayúscula.
-- **`ft_tolower`**: Convierte un carácter a su versión en minúscula.
-- **`ft_strchr`**: Busca la primera aparición de un carácter en una cadena.
-- **`ft_strrchr`**: Busca la última aparición de un carácter en una cadena.
-- **`ft_strncmp`**: Compara dos cadenas hasta un número específico de caracteres.
-- **`ft_memchr`**: Busca un byte en un bloque de memoria.
-- **`ft_memcmp`**: Compara dos bloques de memoria.
-- **`ft_strnstr`**: Busca una subcadena en una cadena.
-- **`ft_atoi`**: Convierte una cadena de caracteres a un número entero.
-- **`ft_calloc`**: Reserva memoria e inicializa a cero.
-- **`ft_strdup`**: Duplica una cadena de caracteres.
+## 🗂️ Estructura del Proyecto
 
-## Parte Bonus: Funciones de Lista 🔗
+```
+.
+├── include/
+│   ├── ft_printf.h
+│   └── libft.h
+├── src/
+│   ├── libft/       # Funciones de la biblioteca estándar
+│   ├── gnl/         # Get Next Line
+│   └── ft_printf/   # Printf personalizado
+├── obj/             # Archivos objeto (generado)
+├── deps/            # Archivos de dependencias (generado)
+├── Makefile
+└── README.md
+```
 
-Las funciones bonus están diseñadas para trabajar con listas enlazadas, una estructura de datos dinámica muy útil cuando necesitamos almacenar una colección de elementos sin un tamaño fijo. En esta parte, el foco está en la manipulación de nodos y la creación de funciones que gestionan listas enlazadas de manera eficiente.
-## Estructura `t_list` 📝
+---
 
-La estructura `t_list` se utiliza para definir los nodos de una lista enlazada. Cada nodo contiene dos componentes:
+## 📖 Funciones de Libft
 
-- **`content`**: Un puntero a cualquier tipo de contenido que el nodo almacena.
-- **`next`**: Un puntero al siguiente nodo en la lista. Si es `NULL`, significa que es el último nodo.
+### Funciones de Verificación de Caracteres
+
+| Función | Descripción |
+|---------|-------------|
+| `ft_isalpha` | Verifica si un carácter es alfabético (a-z, A-Z) |
+| `ft_isdigit` | Verifica si un carácter es un dígito (0-9) |
+| `ft_isalnum` | Verifica si un carácter es alfanumérico |
+| `ft_isascii` | Verifica si un carácter está en el rango ASCII (0-127) |
+| `ft_isprint` | Verifica si un carácter es imprimible |
+| `ft_isspace` | Verifica si un carácter es un espacio en blanco |
+| `ft_ismetachar` | Verifica si un carácter es un metacarácter de shell |
+
+### Funciones de Conversión
+
+| Función | Descripción |
+|---------|-------------|
+| `ft_toupper` | Convierte un carácter a mayúscula |
+| `ft_tolower` | Convierte un carácter a minúscula |
+| `ft_atoi` | Convierte una cadena a entero |
+| `ft_itoa` | Convierte un entero a cadena |
+
+### Funciones de Manipulación de Memoria
+
+| Función | Descripción |
+|---------|-------------|
+| `ft_memset` | Llena un bloque de memoria con un byte específico |
+| `ft_bzero` | Establece un bloque de memoria a cero |
+| `ft_memcpy` | Copia n bytes de memoria (sin solapamiento) |
+| `ft_memmove` | Copia n bytes de memoria (con solapamiento seguro) |
+| `ft_memchr` | Busca un byte en un bloque de memoria |
+| `ft_memcmp` | Compara dos bloques de memoria |
+| `ft_calloc` | Reserva memoria inicializada a cero |
+| `ft_realloc` | Redimensiona un bloque de memoria previamente reservado |
+
+### Funciones de Manipulación de Cadenas
+
+| Función | Descripción |
+|---------|-------------|
+| `ft_strlen` | Calcula la longitud de una cadena |
+| `ft_strlcpy` | Copia una cadena de forma segura (con límite de tamaño) |
+| `ft_strlcat` | Concatena cadenas de forma segura |
+| `ft_strchr` | Busca la primera ocurrencia de un carácter |
+| `ft_strrchr` | Busca la última ocurrencia de un carácter |
+| `ft_strncmp` | Compara dos cadenas hasta n caracteres |
+| `ft_strnstr` | Busca una subcadena en una cadena (con límite) |
+| `ft_strdup` | Duplica una cadena (reserva memoria) |
+| `ft_substr` | Extrae una subcadena |
+| `ft_strjoin` | Concatena dos cadenas en una nueva |
+| `ft_strtrim` | Elimina caracteres específicos del inicio y final |
+| `ft_split` | Divide una cadena en un array usando un delimitador |
+| `ft_strmapi` | Aplica una función a cada carácter (con índice) |
+| `ft_striteri` | Aplica una función a cada carácter (modifica in-place) |
+| `ft_multijoin` | Une múltiples cadenas en una sola |
+
+### Funciones de Salida
+
+| Función | Descripción |
+|---------|-------------|
+| `ft_putchar_fd` | Escribe un carácter en un file descriptor |
+| `ft_putstr_fd` | Escribe una cadena en un file descriptor |
+| `ft_putendl_fd` | Escribe una cadena seguida de nueva línea |
+| `ft_putnbr_fd` | Escribe un número entero en un file descriptor |
+
+---
+
+## 📄 Get Next Line
+
+### ¿Qué es?
+
+`get_next_line` es una función que lee una línea de un file descriptor, incluyendo el carácter de nueva línea (`\n`). Es especialmente útil para leer archivos línea por línea o entrada estándar.
+
+### Funcionamiento
 
 ```c
-typedef struct s_list {
-    void *content;   // Contenido del nodo
-    struct s_list *next;  // Puntero al siguiente nodo
-} t_list;
+char *get_next_line(int fd);
 ```
-### Explicación general de las funciones de lista:
-Las funciones implementadas permiten crear, modificar, y eliminar nodos dentro de una lista enlazada, lo que ofrece una flexibilidad adicional frente a arrays estáticos. Cada nodo contiene un puntero a su contenido y otro puntero al siguiente nodo de la lista, lo que facilita la inserción y eliminación de elementos.
 
-- **`ft_lstnew`**: Crea un nuevo nodo con un contenido determinado.
-- **`ft_lstadd_front`**: Añade un nodo al principio de la lista, moviendo la cabeza de la lista.
-- **`ft_lstsize`**: Devuelve el número de nodos en la lista.
-- **`ft_lstlast`**: Devuelve el último nodo de la lista, útil para añadir nuevos nodos al final.
-- **`ft_lstadd_back`**: Añade un nodo al final de la lista.
-- **`ft_lstdelone`**: Elimina un nodo de la lista y libera su memoria.
-- **`ft_lstclear`**: Elimina todos los nodos de la lista y libera la memoria asociada.
-- **`ft_lstiter`**: Itera sobre todos los nodos y aplica una función a cada uno.
-- **`ft_lstmap`**: Crea una nueva lista aplicando una función a cada nodo de la lista original.
+- **Parámetro**: `fd` - file descriptor del cual leer
+- **Retorno**: La línea leída (incluyendo `\n`), o `NULL` si no hay más que leer o hay error
+- **Gestión de memoria**: Cada llamada devuelve una nueva línea que debe ser liberada por el usuario
 
-# Explicación General del `Makefile` y Proceso de Compilación ⚙️
+### Características
 
-El `Makefile` es utilizado para automatizar el proceso de compilación del proyecto. Su objetivo principal es definir las reglas y dependencias que aseguran que los archivos fuente se compilen correctamente y se genere la librería estática `libft.a`.
+- Lee de cualquier file descriptor (archivos, stdin, sockets, etc.)
+- Gestiona múltiples file descriptors simultáneamente
+- Utiliza un buffer estático para mantener datos entre llamadas
+- Detecta el final del archivo y gestiona errores de lectura
+- Buffer size configurable en tiempo de compilación
 
-### Objetivo del `Makefile`
+### Casos de Uso
 
-El `Makefile` tiene varias reglas que:
-1. **Compilan** los archivos fuente `.c` en archivos objeto `.o`.
-2. **Generan** la librería estática `libft.a` usando el comando `ar` para combinar los archivos objeto `.o` en una sola librería.
+```c
+int fd = open("archivo.txt", O_RDONLY);
+char *line;
+
+while ((line = get_next_line(fd)) != NULL)
+{
+    printf("%s", line);
+    free(line);
+}
+close(fd);
+```
+
+---
+
+## 🖨️ ft_printf
+
+### ¿Qué es?
+
+`ft_printf` es una reimplementación de la función `printf` de la biblioteca estándar de C, que formatea y escribe datos en la salida estándar.
+
+### Prototipo
+
+```c
+int ft_printf(const char *format, ...);
+```
+
+- **Parámetro**: `format` - cadena de formato con especificadores
+- **Retorno**: Número de caracteres impresos, o -1 en caso de error
+
+### Conversiones Soportadas
+
+| Especificador | Descripción |
+|---------------|-------------|
+| `%c` | Carácter individual |
+| `%s` | Cadena de caracteres |
+| `%p` | Puntero en formato hexadecimal |
+| `%d` | Entero decimal con signo |
+| `%i` | Entero decimal con signo |
+| `%u` | Entero decimal sin signo |
+| `%x` | Hexadecimal en minúsculas |
+| `%X` | Hexadecimal en mayúsculas |
+| `%%` | Carácter literal '%' |
+
+### Ejemplo de Uso
+
+```c
+ft_printf("Hola %s, tienes %d años\n", "mundo", 42);
+ft_printf("Dirección: %p\n", ptr);
+ft_printf("Hexadecimal: %x\n", 255);
+```
+
+### Implementación
+
+La función utiliza argumentos variables (`stdarg.h`) para procesar diferentes tipos de datos. Analiza la cadena de formato carácter por carácter, identificando especificadores y delegando la conversión a funciones auxiliares especializadas.
+
+---
+
+## 🔨 Compilación
+
+### Requisitos
+
+- Compilador GCC o Clang
+- Make
+
+### Comandos del Makefile
+
+```bash
+make          # Compila la biblioteca libft.a
+make clean    # Elimina archivos objeto y dependencias
+make fclean   # Elimina todo (incluido libft.a)
+make re       # Recompila desde cero (fclean + all)
+```
 
 ### Proceso de Compilación
 
-1. Los archivos `.c` se compilan a archivos objeto `.o` mediante el compilador de C.
-2. Los archivos `.o` se agrupan en un archivo estático `libft.a` utilizando `ar`.
+1. **Generación de directorios**: Se crean `obj/` y `deps/` automáticamente
+2. **Compilación de archivos fuente**: Cada `.c` se compila en un `.o` correspondiente
+3. **Generación de dependencias**: Flag `-MMD -MP` genera archivos `.d` que rastrean dependencias de headers
+4. **Creación de biblioteca**: `ar -rcs` empaqueta todos los `.o` en `libft.a`
 
-Esto se hace de forma eficiente gracias al uso del `Makefile`, que automatiza la compilación y optimiza el flujo de trabajo.
+### Flags de Compilación
 
+- `-Wall -Werror -Wextra`: Activar advertencias y tratarlas como errores
+- `-Iinclude`: Incluir el directorio de headers
+- `-MMD -MP`: Generar archivos de dependencias automáticas
+
+---
+
+## 🚀 Uso en Proyectos
+
+### 1. Incluir la Biblioteca
+
+Copia `libft.a` y los headers a tu proyecto:
+
+```bash
+cp libft.a /ruta/a/tu/proyecto/
+cp include/*.h /ruta/a/tu/proyecto/
+```
+
+### 2. Compilar con la Biblioteca
+
+```bash
+gcc main.c libft.a -o programa
+```
+
+O especificando la ruta:
+
+```bash
+gcc main.c -L. -lft -o programa
+```
+
+### 3. Incluir Headers en tu Código
+
+```c
+#include "libft.h"
+#include "ft_printf.h"
+
+int main(void)
+{
+    char *line;
+    int fd;
+    
+    // Usar ft_printf
+    ft_printf("Hola Mundo!\n");
+    
+    // Usar get_next_line
+    fd = open("test.txt", O_RDONLY);
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        ft_printf("%s", line);
+        free(line);
+    }
+    close(fd);
+    
+    // Usar funciones de libft
+    char *str = ft_strdup("42 Barcelona");
+    ft_printf("Longitud: %d\n", ft_strlen(str));
+    free(str);
+    
+    return (0);
+}
+```
+
+### 4. Integrar en tu Makefile
+
+```makefile
+NAME = mi_programa
+LIBFT = libft/libft.a
+SRCS = main.c utils.c
+OBJS = $(SRCS:.c=.o)
+
+all: $(LIBFT) $(NAME)
+
+$(LIBFT):
+	make -C libft
+
+$(NAME): $(OBJS)
+	gcc $(OBJS) $(LIBFT) -o $(NAME)
+
+clean:
+	rm -f $(OBJS)
+	make -C libft clean
+
+fclean: clean
+	rm -f $(NAME)
+	make -C libft fclean
+
+re: fclean all
+```
+
+---
+
+## 📝 Notas
+
+- Todas las funciones están protegidas contra `NULL` y parámetros inválidos
+- La gestión de memoria es responsabilidad del usuario (funciones que asignan memoria deben ser liberadas)
+- Compatible con proyectos de 42 School (norminette)
+- Sistema de dependencias automáticas evita recompilaciones innecesarias
+
+---
+
+## 👤 Autor
+
+**mvillavi** - 42 Barcelona
+
+---
+
+## 📜 Licencia
+
+Este proyecto es de código abierto y está disponible para uso educativo.
