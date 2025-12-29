@@ -33,68 +33,56 @@ Una biblioteca estática que reúne funciones esenciales para proyectos en C, in
 
 ### Funciones de Verificación de Caracteres
 
-| Función | Descripción |
-|---------|-------------|
--  `ft_isalpha`: Verifica si un carácter es alfabético (a-z, A-Z) |
-- `ft_isdigit` : Verifica si un carácter es un dígito (0-9) |
-- `ft_isalnum` : Verifica si un carácter es alfanumérico |
-- `ft_isascii` : Verifica si un carácter está en el rango ASCII (0-127) |
-- `ft_isprint` : Verifica si un carácter es imprimible |
-- `ft_isspace` : Verifica si un carácter es un espacio en blanco |
-- `ft_ismetachar` : Verifica si un carácter es un metacarácter de shell |
+- `ft_isalpha`: Verifica si un carácter es alfabético (a-z, A-Z) 
+- `ft_isdigit` : Verifica si un carácter es un dígito (0-9) 
+- `ft_isalnum` : Verifica si un carácter es alfanumérico 
+- `ft_isascii` : Verifica si un carácter está en el rango ASCII (0-127) 
+- `ft_isprint` : Verifica si un carácter es imprimible 
+- `ft_isspace` : Verifica si un carácter es un espacio en blanco 
+- `ft_ismetachar` : Verifica si un carácter es un metacarácter de shell 
 
 ### Funciones de Conversión
 
-| Función | Descripción |
-|---------|-------------|
-| `ft_toupper` | Convierte un carácter a mayúscula |
-| `ft_tolower` | Convierte un carácter a minúscula |
-| `ft_atoi` | Convierte una cadena a entero |
-| `ft_itoa` | Convierte un entero a cadena |
+- `ft_toupper` : Convierte un carácter a mayúscula 
+- `ft_tolower` : Convierte un carácter a minúscula
+- `ft_atoi` : Convierte una cadena a entero 
+- `ft_itoa` : Convierte un entero a cadena 
 
 ### Funciones de Manipulación de Memoria
 
-| Función | Descripción |
-|---------|-------------|
-| `ft_memset` | Llena un bloque de memoria con un byte específico |
-| `ft_bzero` | Establece un bloque de memoria a cero |
-| `ft_memcpy` | Copia n bytes de memoria (sin solapamiento) |
-| `ft_memmove` | Copia n bytes de memoria (con solapamiento seguro) |
-| `ft_memchr` | Busca un byte en un bloque de memoria |
-| `ft_memcmp` | Compara dos bloques de memoria |
-| `ft_calloc` | Reserva memoria inicializada a cero |
-| `ft_realloc` | Redimensiona un bloque de memoria previamente reservado |
+- `ft_memset` : Llena un bloque de memoria con un byte específico 
+- `ft_bzero` : Establece un bloque de memoria a cero 
+- `ft_memcpy` : Copia n bytes de memoria (sin solapamiento) 
+- `ft_memmove` : Copia n bytes de memoria (con solapamiento seguro) 
+- `ft_memchr` : Busca un byte en un bloque de memoria 
+- `ft_memcmp` : Compara dos bloques de memoria 
+- `ft_calloc` : Reserva memoria inicializada a cero 
+- `ft_realloc` : Redimensiona un bloque de memoria previamente reservado 
 
 ### Funciones de Manipulación de Cadenas
-
-| Función | Descripción |
-|---------|-------------|
-| `ft_strlen` | Calcula la longitud de una cadena |
-| `ft_strlcpy` | Copia una cadena de forma segura (con límite de tamaño) |
-| `ft_strlcat` | Concatena cadenas de forma segura |
-| `ft_strchr` | Busca la primera ocurrencia de un carácter |
-| `ft_strrchr` | Busca la última ocurrencia de un carácter |
-| `ft_strncmp` | Compara dos cadenas hasta n caracteres |
-| `ft_strnstr` | Busca una subcadena en una cadena (con límite) |
-| `ft_strdup` | Duplica una cadena (reserva memoria) |
-| `ft_substr` | Extrae una subcadena |
-| `ft_strjoin` | Concatena dos cadenas en una nueva |
-| `ft_strtrim` | Elimina caracteres específicos del inicio y final |
-| `ft_split` | Divide una cadena en un array usando un delimitador |
-| `ft_strmapi` | Aplica una función a cada carácter (con índice) |
-| `ft_striteri` | Aplica una función a cada carácter (modifica in-place) |
-| `ft_multijoin` | Une múltiples cadenas en una sola |
+- `ft_strlen` : Calcula la longitud de una cadena 
+- `ft_strlcpy` : Copia una cadena de forma segura (con límite de tamaño) 
+- `ft_strlcat` : Concatena cadenas de forma segura 
+- `ft_strchr` : Busca la primera ocurrencia de un carácter 
+- `ft_strrchr` : Busca la última ocurrencia de un carácter 
+- `ft_strncmp` : Compara dos cadenas hasta n caracteres 
+- `ft_strnstr` : Busca una subcadena en una cadena (con límite) 
+- `ft_strdup` : Duplica una cadena (reserva memoria) 
+- `ft_substr` : Extrae una subcadena 
+- `ft_strjoin` : Concatena dos cadenas en una nueva 
+- `ft_strtrim` : Elimina caracteres específicos del inicio y final 
+- `ft_split` : Divide una cadena en un array usando un delimitador 
+- `ft_strmapi` : Aplica una función a cada carácter (con índice) 
+- `ft_striteri` : Aplica una función a cada carácter (modifica in-place) 
+- `ft_multijoin` : Une múltiples cadenas en una sola 
 
 ### Funciones de Salida
 
-| Función | Descripción |
-|---------|-------------|
-| `ft_putchar_fd` | Escribe un carácter en un file descriptor |
-| `ft_putstr_fd` | Escribe una cadena en un file descriptor |
-| `ft_putendl_fd` | Escribe una cadena seguida de nueva línea |
-| `ft_putnbr_fd` | Escribe un número entero en un file descriptor |
+- `ft_putchar_fd` : Escribe un carácter en un file descriptor 
+- `ft_putstr_fd` : Escribe una cadena en un file descriptor 
+- `ft_putendl_fd` : Escribe una cadena seguida de nueva línea 
+- `ft_putnbr_fd` : Escribe un número entero en un file descriptor 
 
----
 
 ## 📄 Get Next Line
 
@@ -104,7 +92,7 @@ Una biblioteca estática que reúne funciones esenciales para proyectos en C, in
 
 ### Funcionamiento
 
-```c
+```
 char *get_next_line(int fd);
 ```
 
